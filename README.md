@@ -13,15 +13,17 @@ bun add -d @timche/oxc-configs
 `oxfmt.config.ts`
 
 ```ts
+import { defineConfig } from "oxfmt";
 import oxfmtConfig from "@timche/oxc-configs/oxfmt";
 
-export default oxfmtConfig;
+export default defineConfig(oxfmtConfig);
 ```
 
 `oxlint.config.ts`
 
 ```ts
+import { defineConfig } from "oxlint";
 import oxlintConfig from "@timche/oxc-configs/oxlint";
 
-export default oxlintConfig;
+export default defineConfig(oxlintConfig);
 ```

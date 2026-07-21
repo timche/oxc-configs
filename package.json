@@ -1,6 +1,6 @@
 {
   "name": "@timche/oxc-configs",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Oxlint and Oxfmt configs",
   "license": "MIT",
   "author": "Tim Cheung <tim@cheung.io>",
