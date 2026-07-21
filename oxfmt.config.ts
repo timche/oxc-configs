@@ -9,7 +9,6 @@ const oxfmtConfig = defineConfig({
   },
   sortTailwindcss: {
     functions: ["cn", "cva"],
-    stylesheet: "packages/ui/styles/globals.css",
   },
 });
 
