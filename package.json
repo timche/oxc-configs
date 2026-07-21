@@ -1,6 +1,6 @@
 {
   "name": "@timche/oxc-configs",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Oxlint and Oxfmt configs",
   "license": "MIT",
   "author": "Tim Cheung <tim@cheung.io>",
@@ -18,11 +18,13 @@
     "lint": "oxlint .",
     "prepare": "tsc"
   },
-  "dependencies": {
-    "oxfmt": "^0.59.0",
-    "oxlint": "^1.74.0"
-  },
   "devDependencies": {
+    "oxfmt": "^0.59.0",
+    "oxlint": "^1.74.0",
     "typescript": "^7.0.2"
+  },
+  "peerDependencies": {
+    "oxlint": ">=1.74.0",
+    "typescript": ">=7.0.2"
   }
 }
