@@ -1,0 +1,27 @@
+{
+  "name": "@timche/oxc-configs",
+  "version": "1.0.0",
+  "description": "Oxlint and Oxfmt configs",
+  "license": "MIT",
+  "author": "Tim Cheung <tim@cheung.io>",
+  "repository": "timche/oxc-configs",
+  "files": [
+    "oxfmt.config.ts",
+    "oxlint.config.ts"
+  ],
+  "exports": {
+    "./oxfmt": "./oxfmt.config.ts",
+    "./oxlint": "./oxlint.config.ts"
+  },
+  "scripts": {
+    "format": "oxfmt --write .",
+    "lint": "oxlint ."
+  },
+  "dependencies": {
+    "oxfmt": "^0.59.0",
+    "oxlint": "^1.74.0"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}
