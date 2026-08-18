@@ -8,6 +8,12 @@
 bun add -d @timche/oxc-configs
 ```
 
+The Oxlint config enables [type-aware linting](https://oxc.rs/docs/guide/usage/linter/type-aware.html), which needs an extra dependency:
+
+```sh
+bun add -d oxlint-tsgolint
+```
+
 ## Usage
 
 `oxfmt.config.ts`

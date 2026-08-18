@@ -12,6 +12,9 @@ const oxlintConfig = defineConfig({
   env: {
     builtin: true,
   },
+  options: {
+    typeAware: true,
+  },
 });
 
 export default oxlintConfig;
