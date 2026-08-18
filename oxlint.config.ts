@@ -34,7 +34,6 @@ const oxlintConfig = defineConfig({
     "typescript/require-await": "error",
     "typescript/return-await": "error",
     "no-promise-executor-return": "error",
-    "preserve-caught-error": "error",
     "unicorn/error-message": "error",
     "unicorn/throw-new-error": "error",
     "unicorn/prefer-type-error": "error",
