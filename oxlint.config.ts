@@ -62,9 +62,14 @@ const oxlintConfig = defineConfig({
     "typescript/no-mixed-enums": "error",
     "typescript/related-getter-setter-pairs": "error",
     "typescript/no-non-null-asserted-nullish-coalescing": "error",
-    // A boolean `||` is a disjunction, not a fallback: `false ?? other` keeps
-    // the `false`, so rewriting one changes what it answers.
-    "typescript/prefer-nullish-coalescing": ["error", { ignorePrimitives: { boolean: true } }],
+    // A string or boolean `||` is a deliberate falsy fallback, not a nullish
+    // one: `"" ?? next` and `false ?? next` keep the falsy value, so rewriting
+    // one changes what it answers. Numbers and objects still report, where
+    // `count || 10` discards a stored `0`.
+    "typescript/prefer-nullish-coalescing": [
+      "error",
+      { ignorePrimitives: { string: true, boolean: true } },
+    ],
     "typescript/prefer-optional-chain": "error",
     eqeqeq: ["error", "always", { null: "ignore" }],
     "array-callback-return": "error",
