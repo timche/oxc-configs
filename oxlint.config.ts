@@ -17,6 +17,9 @@ const oxlintConfig = defineConfig({
     "import/no-unassigned-import": "off",
     "import/no-named-as-default-member": "off",
     "react/react-in-jsx-scope": "off",
+    // Spreading in a `map` is how an immutable update is written; the in-place
+    // mutation it asks for is the thing such code is avoiding.
+    "oxc/no-map-spread": "off",
 
     // Escape hatches out of the type system.
     "typescript/no-explicit-any": "error",
@@ -47,7 +50,12 @@ const oxlintConfig = defineConfig({
 
     // Logic errors that still compile.
     "typescript/no-unnecessary-condition": "error",
-    "typescript/switch-exhaustiveness-check": "error",
+    // A `default` case answers for the members left unlisted, which is the only
+    // sane way to switch on a wide union from a library.
+    "typescript/switch-exhaustiveness-check": [
+      "error",
+      { considerDefaultExhaustiveForUnions: true },
+    ],
     "typescript/restrict-plus-operands": "error",
     "typescript/no-deprecated": "error",
     "typescript/no-confusing-void-expression": ["error", { ignoreArrowShorthand: true }],
