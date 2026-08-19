@@ -132,6 +132,25 @@ const oxlintConfig = defineConfig({
     // A blanket disable comment switches off everything above.
     "unicorn/no-abusive-eslint-disable": "error",
   },
+  overrides: [
+    {
+      // Test files often sit outside the tsconfig program, which types every
+      // expression in them as `error` and makes the type-safety rules fire on
+      // all of it. Assertions also work with deliberately partial fixtures.
+      files: ["**/*.{test,spec}.{js,jsx,ts,tsx}"],
+      rules: {
+        "typescript/no-explicit-any": "off",
+        "typescript/no-non-null-assertion": "off",
+        "typescript/no-unsafe-argument": "off",
+        "typescript/no-unsafe-assignment": "off",
+        "typescript/no-unsafe-call": "off",
+        "typescript/no-unsafe-member-access": "off",
+        "typescript/no-unsafe-return": "off",
+        "typescript/no-unsafe-type-assertion": "off",
+        "typescript/ban-ts-comment": "off",
+      },
+    },
+  ],
   env: {
     builtin: true,
   },
