@@ -1,7 +1,7 @@
 import { defineConfig } from "oxlint";
 
 const oxlintConfig = defineConfig({
-  plugins: ["typescript", "unicorn", "oxc", "import"],
+  plugins: ["typescript", "unicorn", "oxc", "import", "react"],
   categories: {
     correctness: "error",
     suspicious: "error",
@@ -14,6 +14,7 @@ const oxlintConfig = defineConfig({
     "typescript/no-extraneous-class": "off",
     "unicorn/consistent-function-scoping": "off",
     "import/no-unassigned-import": "off",
+    "react/react-in-jsx-scope": "off",
 
     "typescript/no-explicit-any": "error",
     "typescript/no-non-null-assertion": "error",
@@ -116,6 +117,9 @@ const oxlintConfig = defineConfig({
     "import/no-duplicates": "error",
     "import/no-mutable-exports": "error",
     "import/first": "error",
+
+    "react-hooks/rules-of-hooks": "error",
+    "react/react-compiler": "error",
 
     "unicorn/no-abusive-eslint-disable": "error",
   },
