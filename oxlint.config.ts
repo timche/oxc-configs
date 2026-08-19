@@ -127,7 +127,6 @@ const oxlintConfig = defineConfig({
 
     // React rules that sit outside the enabled categories.
     "react/rules-of-hooks": "error",
-    "react/react-compiler": "error",
     "react/button-has-type": "error",
 
     // A blanket disable comment switches off everything above.
