@@ -96,7 +96,6 @@ const oxlintConfig = defineConfig({
     "typescript/consistent-type-imports": "error",
     "typescript/no-import-type-side-effects": "error",
     "unicorn/consistent-existence-index-check": "error",
-    "unicorn/explicit-length-check": "error",
     "unicorn/no-unreadable-array-destructuring": "error",
     "unicorn/no-unreadable-iife": "error",
     "unicorn/prefer-node-protocol": "error",
