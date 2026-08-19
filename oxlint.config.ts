@@ -158,6 +158,11 @@ const oxlintConfig = defineConfig({
         "typescript/no-unsafe-return": "off",
         "typescript/no-unsafe-type-assertion": "off",
         "typescript/ban-ts-comment": "off",
+        // The same missing type information makes these two report the
+        // opposite way round: an assertion or a check the program needs looks
+        // redundant, and their fixes delete code the compiler then rejects.
+        "typescript/no-unnecessary-type-assertion": "off",
+        "typescript/no-unnecessary-condition": "off",
         // Test helpers commonly return a union of a sync and an async
         // function, and React's `act` is typed void but awaited by design.
         "typescript/await-thenable": "off",
