@@ -126,7 +126,7 @@ const oxlintConfig = defineConfig({
     "import/first": "error",
 
     // React rules that sit outside the enabled categories.
-    "react-hooks/rules-of-hooks": "error",
+    "react/rules-of-hooks": "error",
     "react/react-compiler": "error",
 
     // A blanket disable comment switches off everything above.
@@ -137,7 +137,7 @@ const oxlintConfig = defineConfig({
       // Test files often sit outside the tsconfig program, which types every
       // expression in them as `error` and makes the type-safety rules fire on
       // all of it. Assertions also work with deliberately partial fixtures.
-      files: ["**/*.{test,spec}.{js,jsx,ts,tsx}"],
+      files: ["**/*.test.{js,jsx,ts,tsx}"],
       rules: {
         "typescript/no-explicit-any": "off",
         "typescript/no-non-null-assertion": "off",

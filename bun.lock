@@ -11,10 +11,15 @@
         "typescript": "^7.0.2",
       },
       "peerDependencies": {
+        "oxfmt": ">=0.59.0",
         "oxlint": ">=1.74.0",
         "oxlint-tsgolint": ">=7.0.2001",
-        "typescript": ">=7.0.2",
       },
+      "optionalPeers": [
+        "oxfmt",
+        "oxlint",
+        "oxlint-tsgolint",
+      ],
     },
   },
   "packages": {
