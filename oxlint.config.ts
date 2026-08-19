@@ -162,6 +162,10 @@ const oxlintConfig = defineConfig({
         // function, and React's `act` is typed void but awaited by design.
         "typescript/await-thenable": "off",
         "typescript/no-confusing-void-expression": "off",
+        // Test doubles are declared `async` to satisfy a promise-returning
+        // contract, and dropping the keyword would turn a rejection into a
+        // synchronous throw.
+        "typescript/require-await": "off",
       },
     },
   ],
