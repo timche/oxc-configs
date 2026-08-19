@@ -8,6 +8,7 @@ const oxlintConfig = defineConfig({
     perf: "error",
   },
   rules: {
+    // Turned on by the enabled categories, but they cost more than they catch.
     "no-underscore-dangle": "off",
     "no-await-in-loop": "off",
     "typescript/consistent-return": "off",
@@ -16,6 +17,7 @@ const oxlintConfig = defineConfig({
     "import/no-unassigned-import": "off",
     "react/react-in-jsx-scope": "off",
 
+    // Escape hatches out of the type system.
     "typescript/no-explicit-any": "error",
     "typescript/no-non-null-assertion": "error",
     "typescript/no-unsafe-argument": "error",
@@ -28,6 +30,7 @@ const oxlintConfig = defineConfig({
     "typescript/no-invalid-void-type": "error",
     "typescript/ban-ts-comment": ["error", { "ts-expect-error": "allow-with-description" }],
 
+    // Async work and thrown values.
     "typescript/no-misused-promises": "error",
     "typescript/only-throw-error": "error",
     "typescript/prefer-promise-reject-errors": "error",
@@ -40,6 +43,7 @@ const oxlintConfig = defineConfig({
     "unicorn/prefer-type-error": "error",
     "unicorn/catch-error-name": "error",
 
+    // Logic errors that still compile.
     "typescript/no-unnecessary-condition": "error",
     "typescript/switch-exhaustiveness-check": "error",
     "typescript/restrict-plus-operands": "error",
@@ -76,12 +80,14 @@ const oxlintConfig = defineConfig({
     "unicorn/new-for-builtins": "error",
     "oxc/bad-bitwise-operator": "error",
 
+    // Code that has no effect.
     "no-useless-assignment": "error",
     "no-unreachable-loop": "error",
     "no-else-return": "error",
     "unicorn/no-useless-promise-resolve-reject": "error",
     "unicorn/no-useless-switch-case": "error",
 
+    // One spelling for constructs that have several.
     curly: ["error", "all"],
     "no-var": "error",
     "prefer-const": "error",
@@ -113,14 +119,17 @@ const oxlintConfig = defineConfig({
     "unicorn/require-array-join-separator": "error",
     "unicorn/require-number-to-fixed-digits-argument": "error",
 
+    // The shape of the module graph.
     "import/no-cycle": "error",
     "import/no-duplicates": "error",
     "import/no-mutable-exports": "error",
     "import/first": "error",
 
+    // React rules that sit outside the enabled categories.
     "react-hooks/rules-of-hooks": "error",
     "react/react-compiler": "error",
 
+    // A blanket disable comment switches off everything above.
     "unicorn/no-abusive-eslint-disable": "error",
   },
   env: {
