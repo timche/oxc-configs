@@ -128,6 +128,7 @@ const oxlintConfig = defineConfig({
     // React rules that sit outside the enabled categories.
     "react/rules-of-hooks": "error",
     "react/react-compiler": "error",
+    "react/button-has-type": "error",
 
     // A blanket disable comment switches off everything above.
     "unicorn/no-abusive-eslint-disable": "error",
@@ -148,6 +149,9 @@ const oxlintConfig = defineConfig({
         "typescript/no-unsafe-return": "off",
         "typescript/no-unsafe-type-assertion": "off",
         "typescript/ban-ts-comment": "off",
+        // Test helpers commonly return a union of a sync and an async
+        // function, and React's `act` is typed void but awaited by design.
+        "typescript/await-thenable": "off",
       },
     },
   ],
