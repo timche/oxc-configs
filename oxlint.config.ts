@@ -17,6 +17,9 @@ const oxlintConfig = defineConfig({
     "import/no-unassigned-import": "off",
     "import/no-named-as-default-member": "off",
     "react/react-in-jsx-scope": "off",
+    // Spreading in a `map` is how an immutable update is written; the in-place
+    // mutation it asks for is the thing such code is avoiding.
+    "oxc/no-map-spread": "off",
 
     // Escape hatches out of the type system.
     "typescript/no-explicit-any": "error",
@@ -54,7 +57,14 @@ const oxlintConfig = defineConfig({
     "typescript/no-mixed-enums": "error",
     "typescript/related-getter-setter-pairs": "error",
     "typescript/no-non-null-asserted-nullish-coalescing": "error",
-    "typescript/prefer-nullish-coalescing": "error",
+    // A string or boolean `||` is a deliberate falsy fallback, not a nullish
+    // one: `"" ?? next` and `false ?? next` keep the falsy value, so rewriting
+    // one changes what it answers. Numbers and objects still report, where
+    // `count || 10` discards a stored `0`.
+    "typescript/prefer-nullish-coalescing": [
+      "error",
+      { ignorePrimitives: { string: true, boolean: true } },
+    ],
     "typescript/prefer-optional-chain": "error",
     eqeqeq: ["error", "always", { null: "ignore" }],
     "array-callback-return": "error",
@@ -158,10 +168,19 @@ const oxlintConfig = defineConfig({
         "typescript/no-unsafe-return": "off",
         "typescript/no-unsafe-type-assertion": "off",
         "typescript/ban-ts-comment": "off",
+        // The same missing type information makes these two report the
+        // opposite way round: an assertion or a check the program needs looks
+        // redundant, and their fixes delete code the compiler then rejects.
+        "typescript/no-unnecessary-type-assertion": "off",
+        "typescript/no-unnecessary-condition": "off",
         // Test helpers commonly return a union of a sync and an async
         // function, and React's `act` is typed void but awaited by design.
         "typescript/await-thenable": "off",
         "typescript/no-confusing-void-expression": "off",
+        // Test doubles are declared `async` to satisfy a promise-returning
+        // contract, and dropping the keyword would turn a rejection into a
+        // synchronous throw.
+        "typescript/require-await": "off",
       },
     },
   ],
