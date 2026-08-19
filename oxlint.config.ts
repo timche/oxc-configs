@@ -13,7 +13,6 @@ const oxlintConfig = defineConfig({
     "typescript/consistent-return": "off",
     "typescript/no-extraneous-class": "off",
     "unicorn/consistent-function-scoping": "off",
-    "import/no-unassigned-import": "off",
 
     "typescript/no-explicit-any": "error",
     "typescript/no-non-null-assertion": "error",
@@ -115,6 +114,7 @@ const oxlintConfig = defineConfig({
     "unicorn/require-number-to-fixed-digits-argument": "error",
 
     "import/no-cycle": "error",
+    "import/no-unassigned-import": ["error", { allow: ["**/*.css"] }],
     "import/no-duplicates": "error",
     "import/no-mutable-exports": "error",
     "import/first": "error",
