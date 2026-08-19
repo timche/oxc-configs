@@ -54,7 +54,9 @@ const oxlintConfig = defineConfig({
     "typescript/no-mixed-enums": "error",
     "typescript/related-getter-setter-pairs": "error",
     "typescript/no-non-null-asserted-nullish-coalescing": "error",
-    "typescript/prefer-nullish-coalescing": "error",
+    // A boolean `||` is a disjunction, not a fallback: `false ?? other` keeps
+    // the `false`, so rewriting one changes what it answers.
+    "typescript/prefer-nullish-coalescing": ["error", { ignorePrimitives: { boolean: true } }],
     "typescript/prefer-optional-chain": "error",
     eqeqeq: ["error", "always", { null: "ignore" }],
     "array-callback-return": "error",
