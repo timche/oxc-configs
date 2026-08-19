@@ -1,7 +1,7 @@
 import { defineConfig } from "oxlint";
 
 const oxlintConfig = defineConfig({
-  plugins: ["typescript", "unicorn", "oxc", "import", "react"],
+  plugins: ["typescript", "unicorn", "oxc", "import", "react", "jsx-a11y"],
   categories: {
     correctness: "error",
     suspicious: "error",
@@ -15,6 +15,7 @@ const oxlintConfig = defineConfig({
     "typescript/no-extraneous-class": "off",
     "unicorn/consistent-function-scoping": "off",
     "import/no-unassigned-import": "off",
+    "import/no-named-as-default-member": "off",
     "react/react-in-jsx-scope": "off",
 
     // Escape hatches out of the type system.
@@ -37,6 +38,7 @@ const oxlintConfig = defineConfig({
     "typescript/use-unknown-in-catch-callback-variable": "error",
     "typescript/require-await": "error",
     "typescript/return-await": "error",
+    "typescript/strict-void-return": "error",
     "no-promise-executor-return": "error",
     "unicorn/error-message": "error",
     "unicorn/throw-new-error": "error",
@@ -48,6 +50,10 @@ const oxlintConfig = defineConfig({
     "typescript/switch-exhaustiveness-check": "error",
     "typescript/restrict-plus-operands": "error",
     "typescript/no-deprecated": "error",
+    "typescript/no-confusing-void-expression": ["error", { ignoreArrowShorthand: true }],
+    "typescript/no-mixed-enums": "error",
+    "typescript/related-getter-setter-pairs": "error",
+    "typescript/no-non-null-asserted-nullish-coalescing": "error",
     "typescript/prefer-nullish-coalescing": "error",
     "typescript/prefer-optional-chain": "error",
     eqeqeq: ["error", "always", { null: "ignore" }],
@@ -78,6 +84,8 @@ const oxlintConfig = defineConfig({
     "unicorn/consistent-date-clone": "error",
     "unicorn/consistent-empty-array-spread": "error",
     "unicorn/new-for-builtins": "error",
+    "unicorn/no-instanceof-array": "error",
+    "unicorn/no-new-buffer": "error",
     "oxc/bad-bitwise-operator": "error",
 
     // Code that has no effect.
@@ -128,6 +136,8 @@ const oxlintConfig = defineConfig({
     // React rules that sit outside the enabled categories.
     "react/rules-of-hooks": "error",
     "react/button-has-type": "error",
+    "react/jsx-no-target-blank": "error",
+    "react/checked-requires-onchange-or-readonly": "error",
 
     // A blanket disable comment switches off everything above.
     "unicorn/no-abusive-eslint-disable": "error",
@@ -151,6 +161,7 @@ const oxlintConfig = defineConfig({
         // Test helpers commonly return a union of a sync and an async
         // function, and React's `act` is typed void but awaited by design.
         "typescript/await-thenable": "off",
+        "typescript/no-confusing-void-expression": "off",
       },
     },
   ],
