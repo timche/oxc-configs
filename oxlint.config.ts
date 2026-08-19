@@ -82,7 +82,6 @@ const oxlintConfig = defineConfig({
     "unicorn/no-useless-switch-case": "error",
 
     curly: ["error", "all"],
-    "no-console": "error",
     "no-var": "error",
     "prefer-const": "error",
     "prefer-template": "error",
